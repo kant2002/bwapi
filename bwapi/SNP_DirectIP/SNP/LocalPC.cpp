@@ -55,10 +55,10 @@ namespace SMEM
       shd->peer[self].lastOccupied = GetTickCount();
 
       // pass all packets to storm
-      /*int incomingCount = shd->peer[self].incomingCount;
-      if(incomingCount > 16)
+      int incomingCount = shd->peer[self].incomingCount;
+      /*if(incomingCount > 16)
         incomingCount = 16;*/
-      for(int i = 0; i < shd->peer[self].incomingCount; i++)
+      for(int i = 0; i < incomingCount; i++)
       {
         Packet &packet = shd->peer[self].incoming[i];
         passPacket(packet.sender, Util::MemoryFrame(packet.data, packet.length));
